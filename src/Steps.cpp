@@ -23,8 +23,24 @@
 */
 #include "stdafx.h"
 
+int fib(int n) {
+	// array storing fibonacci numbers
+	static int fib_arr[100];
+	fib_arr[0] = 1;
+	fib_arr[1] = 1;
+	int i;
+	for (i = 2; i < 100; i++)
+		fib_arr[i] = -1;
+	if (fib_arr[n] != -1)
+		return fib_arr[n];
+	else
+		return fib(n - 1) + fib(n - 2);
+}
 
 int get_steps(int s)
 {
-	return 0;
+	if (s <= 0)
+		return 0;
+	// you can observe the steps following fibonacci series
+	return fib(s);
 }
